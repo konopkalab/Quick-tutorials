@@ -29,6 +29,8 @@ sfariL = lapply(sfariL, function(x){x$`gene-symbol`})
 matForDEG = readRDS('ADULT_pseudobulk_perBroadCellType_normalized.RDS')
 bcg = nrow(matForDEG)
 
+# This function performs fisher's exact test for each overlap and returns a plot with the specified file name (fn).
+# plot can be set to false (F) to return a data frame instead of the plot.
 geneOvEnr(gnL1 = sfariL, gnL2 = ctmarks_adultL, bcg, plot = T, hg = 10, wd = 14, fn = 'Adult_Cortical_CellTypeMarkers_SFARI_Enrichment')
 
 
