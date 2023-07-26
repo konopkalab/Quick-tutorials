@@ -1,9 +1,9 @@
 rm(list = ls())
 library(rio)
-source('~/onlybiohpc/TUTORIALS/Tutorial_Functions.R')
 
 # Set the working directory to wherever you have all the tutorial materials
 setwd('~/onlybiohpc/TUTORIALS/')
+source('Tutorial_Functions.R')
 
 # Load major cell type markers
 ctmarks_adult = rio::import('Human_AdultBrain_CellType_Markers.xlsx')
