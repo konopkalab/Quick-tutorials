@@ -3,7 +3,7 @@ library(rio)
 library(ggpubr)
 
 # Set the working directory to wherever you have all the tutorial materials
-setwd('~/onlybiohpc/TUTORIALS/')
+setwd('~/TUTORIALS')
 source('Gene_Ontology_Enrichment/Tutorial_Functions.R')
 
 # Load major cell type markers
