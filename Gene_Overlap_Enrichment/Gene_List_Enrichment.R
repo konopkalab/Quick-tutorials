@@ -2,12 +2,12 @@ rm(list = ls())
 library(rio)
 
 # Set the working directory to wherever you have all the tutorial materials
-setwd('~/onlybiohpc/TUTORIALS/')
-source('Tutorial_Functions.R')
+setwd('~/TUTORIALS')
+source('Gene_Overlap_Enrichment/Tutorial_Functions.R')
 
 # Load major cell type markers
-ctmarks_adult = rio::import('Human_AdultBrain_CellType_Markers.xlsx')
-ctmarks_fetal = rio::import('Human_FetalBrain_CellType_Markers.xlsx')
+ctmarks_adult = rio::import('DATASETS/Human_AdultBrain_CellType_Markers.xlsx')
+ctmarks_fetal = rio::import('DATASETS/Human_FetalBrain_CellType_Markers.xlsx')
 
 # Create list of cell type marker genes
 ctmarks_adultL = split(ctmarks_adult, ctmarks_adult$CellType)
@@ -17,7 +17,7 @@ ctmarks_fetalL = split(ctmarks_fetal, ctmarks_fetal$CellType)
 ctmarks_fetalL = lapply(ctmarks_fetalL, function(x){x$Gene})
 
 # Load gene list of interest (SFARI genes in this example)
-sfari = rio::import('SFARI-Gene_genes_07-17-2023release_07-26-2023export.csv')
+sfari = rio::import('DATASETS/SFARI-Gene_genes_07-17-2023release_07-26-2023export.csv')
 
 # Create list of sfari genes split by their score
 sfariL = split(sfari, sfari$`gene-score`)
@@ -26,7 +26,7 @@ sfariL = lapply(sfariL, function(x){x$`gene-symbol`})
 
 ## ENRICHMENT WITH ADULT ##
 # Set the background for enrichment test. We will use all genes tested for cell type marker analysis.
-matForDEG = readRDS('ADULT_pseudobulk_perBroadCellType_normalized.RDS')
+matForDEG = readRDS('DATASETS/ADULT_pseudobulk_perBroadCellType_normalized.RDS')
 bcg = nrow(matForDEG)
 
 # This function performs fisher's exact test for each overlap and returns a plot with the specified file name (fn).
@@ -36,7 +36,7 @@ geneOvEnr(gnL1 = sfariL, gnL2 = ctmarks_adultL, bcg, plot = T, hg = 10, wd = 14,
 
 ## ENRICHMENT WITH FETAL ##
 # Set the background for enrichment test. We will use all genes tested for cell type marker analysis.
-matForDEG = readRDS('FETAL_pseudobulk_perBroadCellType_normalized.RDS')
+matForDEG = readRDS('DATASETS/FETAL_pseudobulk_perBroadCellType_normalized.RDS')
 bcg = nrow(matForDEG)
 
 geneOvEnr(gnL1 = sfariL, gnL2 = ctmarks_fetalL, bcg, plot = T, hg = 10, wd = 14, fn = 'Fetal_Cortical_CellTypeMarkers_SFARI_Enrichment')
