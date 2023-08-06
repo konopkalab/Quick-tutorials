@@ -6,3 +6,5 @@ Tutorials for popular analyses
 **Gene overlap enrichment and depletion:** Same as 'gene overlap enrichment' but also tests for depletion (whether the overlap is significantly lower than expected by chance).
 
 **Gene ontology enrichment:** Performs gene ontology (molecular function, biological process, cellular component) enrichment tests using clusterProfiler. Also shows how to plot the enrichment statistics from multiple comparisons.
+
+**Visualization of gene set overlaps:** Venn diagram (two or three gene sets) or upset plots (>3 gene sets) to visualize overlaps between two gene sets.
