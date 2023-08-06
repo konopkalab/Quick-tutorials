@@ -7,4 +7,4 @@ Tutorials for popular analyses. These tutorials are intended to be short and qui
 
 **Gene ontology enrichment:** Performs gene ontology (molecular function, biological process, cellular component) enrichment tests using clusterProfiler. Also shows how to plot the enrichment statistics from multiple comparisons.
 
-**Visualization of gene set overlaps:** Venn diagram (two or three gene sets) or upset plots (>3 gene sets) to visualize overlaps between two gene sets.
+**Visualization of gene set overlaps:** Venn diagram (two or three gene sets) or upset plots (>3 gene sets) to visualize overlaps between gene sets.
